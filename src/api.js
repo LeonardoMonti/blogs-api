@@ -6,9 +6,11 @@ const app = express();
 
 app.use(express.json());
 
-const { LoginRoutes } = require('./routes');
+const { LoginRoutes, UserRoutes } = require('./routes');
 
 app.use('/login', LoginRoutes);
+
+app.use('/user', UserRoutes);
 
 // ...
 
