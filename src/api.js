@@ -6,6 +6,10 @@ const app = express();
 
 app.use(express.json());
 
+const { LoginRoutes } = require('./routes');
+
+app.use('/login', LoginRoutes);
+
 // ...
 
 // É importante exportar a constante `app`,
