@@ -9,9 +9,9 @@ module.exports = async (req, res, next) => {
     }
 
     const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
-
-    req.body.tokenData = decoded;
-
+    
+    req.tokenData = decoded.data;
+    
     next();
   } catch (error) {
     return res.status(401).json({ message: 'Expired or invalid token' });
