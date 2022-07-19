@@ -9,6 +9,11 @@ const UserControllers = {
 
     return response.status(code).json(message);
   },
+  getAll: async (_request, response) => {
+    const { code, message } = await UserServices.getAll();
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = UserControllers;

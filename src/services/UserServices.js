@@ -15,6 +15,15 @@ const UserServices = {
 
     return { code: 201, message: { token } };
   },
+  getAll: async () => {
+    const allUsers = await User.findAll({ attributes: { exclude: ['password'] } });
+
+    if (allUsers.length === 0) {
+      return { code: 401, message: { message: 'Users not found' } };
+    }
+
+    return { code: 200, message: allUsers };
+  },
 };
 
 module.exports = UserServices;
