@@ -10,4 +10,6 @@ const router = Router();
 
 router.post('/', validateToken, middleware(handleCreatePost), PostControllers.create);
 
+router.get('/', validateToken, PostControllers.getAll);
+
 module.exports = router;

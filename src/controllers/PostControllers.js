@@ -11,6 +11,11 @@ const PostControllers = {
 
     return response.status(code).json(message);
   },
+  getAll: async (_request, response) => {        
+    const { code, message } = await PostServices.getAll();
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = PostControllers;
