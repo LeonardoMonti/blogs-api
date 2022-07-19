@@ -10,4 +10,6 @@ const router = Router();
 
 router.post('/', middleware(handleCreateCategory), validateToken, CategoryControllers.create);
 
+router.get('/', validateToken, CategoryControllers.getAll);
+
 module.exports = router;

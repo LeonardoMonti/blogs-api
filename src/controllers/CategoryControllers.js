@@ -8,6 +8,11 @@ const CategoryControllers = {
 
     return response.status(code).json(message);
   },
+  getAll: async (_request, response) => {    
+    const { code, message } = await CategoryServices.getAll();
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = CategoryControllers;
