@@ -14,6 +14,13 @@ const UserControllers = {
 
     return response.status(code).json(message);
   },
+  getById: async (request, response) => {
+    const { id } = request.params;
+
+    const { code, message } = await UserServices.getById(Number(id));
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = UserControllers;

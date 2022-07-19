@@ -12,4 +12,6 @@ router.post('/', middleware(handleCreate), UserControllers.create);
 
 router.get('/', validateToken, UserControllers.getAll);
 
+router.get('/:id', validateToken, UserControllers.getById);
+
 module.exports = router;
