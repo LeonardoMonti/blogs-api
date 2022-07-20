@@ -21,6 +21,13 @@ const UserControllers = {
 
     return response.status(code).json(message);
   },
+  delete: async (request, response) => {
+    const { id } = request.headers;
+
+    const { code, message } = await UserServices.delete(Number(id));
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = UserControllers;

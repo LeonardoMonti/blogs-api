@@ -37,6 +37,15 @@ const UserServices = {
 
     return { code: 200, message: user };
   },
+  delete: async (id) => {
+    const user = await User.findOne({ where: id });
+
+    if (user.id === id) {
+      await user.destroy({ where: { id } });
+    }
+
+    return { code: 204 };
+  },
 };
 
 module.exports = UserServices;
