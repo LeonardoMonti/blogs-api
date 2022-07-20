@@ -16,6 +16,13 @@ const PostControllers = {
 
     return response.status(code).json(message);
   },
+  getById: async (request, response) => {
+    const { id } = request.params;
+    
+    const { code, message } = await PostServices.getById(Number(id));
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = PostControllers;

@@ -27,6 +27,19 @@ const PostServices = {
   
     return { code: 200, message: allPosts };
   },
+  getById: async (id) => {
+    const postById = await BlogPost.findOne({
+      where: id,
+      include: [
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
+        { model: Category, as: 'categories', through: { attributes: [] } },
+      ],
+  });
+
+  if (!postById) return { code: 404, message: { message: 'Post does not exist' } };
+  
+    return { code: 200, message: postById };
+  },
 };
 
 module.exports = PostServices;

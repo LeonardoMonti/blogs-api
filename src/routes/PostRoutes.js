@@ -12,4 +12,6 @@ router.post('/', validateToken, middleware(handleCreatePost), PostControllers.cr
 
 router.get('/', validateToken, PostControllers.getAll);
 
+router.get('/:id', validateToken, PostControllers.getById);
+
 module.exports = router;
