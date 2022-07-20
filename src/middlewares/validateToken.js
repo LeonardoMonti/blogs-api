@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
     const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
     
     req.tokenData = decoded.data;
+    req.headers = decoded.data;
     
     next();
   } catch (error) {
