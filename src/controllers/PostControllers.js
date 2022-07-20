@@ -32,6 +32,13 @@ const PostControllers = {
 
     return response.status(code).json(message);
   },
+  delete: async (request, response) => {
+    const param = { id: Number(request.params.id), userId: request.tokenData.id };
+    
+    const { code, message } = await PostServices.delete(param);
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = PostControllers;

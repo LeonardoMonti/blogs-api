@@ -61,6 +61,24 @@ const PostServices = {
     
     return { code: 200, message: changeMade };
   },
+  delete: async (params) => {
+    const { id, userId } = params;
+
+    const postById = await BlogPost.findOne({ where: id,
+      include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } }] });
+      
+    if (!postById) {
+      return { code: 404, message: { message: 'Post does not exist' } };
+    }
+
+    if (postById.userId !== userId) {
+      return { code: 401, message: { message: 'Unauthorized user' } };
+    } 
+
+    await BlogPost.destroy({ where: { id } });
+
+    return { code: 204 };
+  },
 };
 
 module.exports = PostServices;
