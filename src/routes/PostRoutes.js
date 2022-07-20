@@ -8,6 +8,7 @@ const handleUpdatePost = require('../middlewares/schemas/handleUpdatePost');
 const validateToken = require('../middlewares/validateToken');
 
 const router = Router();
+router.get('/search', validateToken, PostControllers.searchPost);
 
 router.post('/', validateToken, middleware(handleCreatePost), PostControllers.create);
 

@@ -39,6 +39,13 @@ const PostControllers = {
 
     return response.status(code).json(message);
   },
+  searchPost: async (request, response) => {
+    const { q: search = '' } = request.query;
+    
+    const { code, message } = await PostServices.searchPost(search);
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = PostControllers;
