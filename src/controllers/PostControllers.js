@@ -23,6 +23,15 @@ const PostControllers = {
 
     return response.status(code).json(message);
   },
+  updatePost: async (request, response) => {
+    const param = { id: Number(request.params.id), userId: request.tokenData.id };
+
+    const { title, content } = request.body;
+    
+    const { code, message } = await PostServices.updatePost(param, title, content);
+
+    return response.status(code).json(message);
+  },
 };
 
 module.exports = PostControllers;
