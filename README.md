@@ -28,7 +28,7 @@ Projeto desenvolvido durante o modulo de backend na [Trybe](https://www.betrybe.
 #### 1. Clone o repositório
 - Use o comando: `git clone git@github.com:LeonardoMonti/blogs-api.git`
 - Entre na pasta do repositório que você acabou de clonar:
-  - `cd blogsApi`
+  - `cd blogs-api`
 #### 2. Instale as dependências
   - Execute `npm install`
 #### 3. Você irá precisar configurar as variaveis de ambiente
